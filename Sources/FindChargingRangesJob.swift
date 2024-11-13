@@ -52,6 +52,11 @@ class FindChargingRangesJob: Job {
             logger.info("Clipped Price Group [\(clippedGroup.items.count)] \(clippedGroup.formattedRange ?? "") (\(clippedGroup.rangeTimeInterval ?? -1))")
         }
 
+        guard !clippedGroups.isEmpty else {
+            logger.info("Return early: Clipped Price Groups is empty")
+            return
+        }
+
         let forceChargingRanges = try await sendPriceGroupsAsForceChargingRange(groups: clippedGroups)
 
         try await sendPushMessages(forceChargingRanges: forceChargingRanges)
