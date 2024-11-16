@@ -9,14 +9,15 @@ import ArgumentParser
 import Foundation
 import HomeControlClient
 import HomeControlKit
+import HomeControlLogging
 import Logging
 
 @main
 struct MainCommand: AsyncParsableCommand {
-    private static let logger = Logger(chargeFinder: "main-command")
+    private static let logger = Logger(homeControl: "charge-finder.main-command")
 
     func run() async throws {
-        LoggingSystem.bootstrap { HomeControlLogHandler(logLevel: .info, label: $0) }
+        LoggingSystem.bootstrapHomeControl()
 
         // Load environment from .env.json
         let dotEnv = try DotEnv.fromWorkingDirectory()

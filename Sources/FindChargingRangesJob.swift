@@ -8,10 +8,11 @@
 import Foundation
 import HomeControlKit
 import HomeControlClient
+import HomeControlLogging
 import Logging
 
 class FindChargingRangesJob: Job {
-    private let logger = Logger(chargeFinder: "find-charging-ranges-job")
+    private let logger = Logger(homeControl: "charge-finder.find-charging-ranges-job")
 
     private let homeControlClient: HomeControlClientable
     private var settings: ChargeFinderSettings?

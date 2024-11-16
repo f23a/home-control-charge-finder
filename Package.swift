@@ -9,7 +9,7 @@ let package = Package(
     dependencies: [
 //        .package(path: "../home-control-client"),
         .package(url: "https://github.com/f23a/home-control-client.git", from: "1.5.0"),
-        .package(url: "https://github.com/apple/swift-log.git", from: "1.6.1"),
+        .package(url: "https://github.com/f23a/home-control-logging.git", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.5.0")
     ],
     targets: [
@@ -17,7 +17,7 @@ let package = Package(
             name: "home-control-charge-finder",
             dependencies: [
                 .product(name: "HomeControlClient", package: "home-control-client"),
-                .product(name: "Logging", package: "swift-log"),
+                .product(name: "HomeControlLogging", package: "home-control-logging"),
                 .product(name: "ArgumentParser", package: "swift-argument-parser")
             ]
         )
