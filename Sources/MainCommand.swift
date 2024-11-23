@@ -20,7 +20,7 @@ struct MainCommand: AsyncParsableCommand {
         LoggingSystem.bootstrapHomeControl()
 
         // Load environment from .env.json
-        let dotEnv = try DotEnv.fromWorkingDirectory()
+        let dotEnv = try DotEnv<[String: String]>.fromWorkingDirectory()
 
         // Prepare home control client
         var homeControlClient = HomeControlClient.localhost
