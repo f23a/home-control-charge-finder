@@ -207,7 +207,8 @@ class FindChargingRangesJob: Job {
                 endsAt: range.upperBound,
                 targetStateOfCharge: 1.0,
                 state: .planned,
-                source: .automatic
+                source: .automatic,
+                isVehicleChargingAllowed: true
             )
             logger.info("Send force charging range \(forceChargingRange)")
             do {
