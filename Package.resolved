@@ -1,13 +1,22 @@
 {
-  "originHash" : "5bfd6e6969e8be7a6b4a2c2751f19b039bf01dcb59d700ee8a43b7f0d04b860d",
+  "originHash" : "533b3cbe8d0f1f41584294aaeef3449d59160f19f70778bf8db7f6662fe396ab",
   "pins" : [
     {
       "identity" : "home-control-client",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/f23a/home-control-client.git",
       "state" : {
-        "revision" : "aa93acc494eeac45aa035c82fd80a1765f1c0e3e",
-        "version" : "1.7.3"
+        "revision" : "0e777fd1a8553c6b046c8d65b361e82322557c78",
+        "version" : "1.7.4"
+      }
+    },
+    {
+      "identity" : "home-control-kit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/f23a/home-control-kit.git",
+      "state" : {
+        "revision" : "82fda10ef6d0841b3ad481f82b048e67b95144a4",
+        "version" : "1.8.5"
       }
     },
     {
