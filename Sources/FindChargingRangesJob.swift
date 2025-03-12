@@ -195,6 +195,8 @@ class FindChargingRangesJob: Job {
     private func sendPriceGroupsAsForceChargingRange(
         groups: [RangedElectricityPriceGroup]
     ) async throws -> [Stored<ForceChargingRange>] {
+        guard let settings else { throw Error.noSettings }
+
         var result: [Stored<ForceChargingRange>] = []
 
         for group in groups {
@@ -205,10 +207,10 @@ class FindChargingRangesJob: Job {
             let forceChargingRange = ForceChargingRange(
                 startsAt: range.lowerBound,
                 endsAt: range.upperBound,
-                targetStateOfCharge: 1.0,
+                targetStateOfCharge: settings.targetStateOfCharge ?? 1.0,
                 state: .planned,
                 source: .automatic,
-                isVehicleChargingAllowed: true
+                isVehicleChargingAllowed: settings.isVehicleChargingAllowed ?? true
             )
             logger.info("Send force charging range \(forceChargingRange)")
             do {
